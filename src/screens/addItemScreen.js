@@ -1,8 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { COLORS } from "../styles/colors";
+import { common } from "../styles/common";
 import { getItem } from "../ducks/item";
+import { Entypo } from "@expo/vector-icons";
+
 
 class AddItemScreen extends Component {
   constructor(props) {
@@ -14,9 +23,16 @@ class AddItemScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.line3}>No Breweries Found.</Text>
-      </View>
+      <SafeAreaView style={common.container}>
+        <View style={styles.headerConatiner}>
+        <Entypo name={"menu"} size={20} color={COLORS.black} style={styles.menuIcon} />
+        <View style={styles.subHeader}><Text style={styles.subHeaderText}>CONSTRUCTOR</Text></View>
+        <Entypo name={"shopping-cart"} size={20} color={COLORS.black} style={styles.cartIcon}/>
+        </View>
+        <TouchableOpacity style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>ADD TO CART</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
     );
   }
 }
@@ -26,12 +42,51 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
+
   },
-  container: {
-    flex: 1,
-    paddingTop: 38,
-    backgroundColor: COLORS.white,
+  headerConatiner:{
+     flexDirection:'row'
   },
+  buttonContainer: {
+    position:"absolute",
+    backgroundColor: COLORS.blue,
+    width: "100%",
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 0,
+  },
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  subHeader:{
+    flex:1,
+    height:50,
+    backgroundColor:COLORS.yellow,
+    alignItems:"center",
+    justifyContent:"center",
+    borderWidth:1,
+    borderColor:COLORS.yellow,
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10
+  },
+  subHeaderText: {
+    color: COLORS.black,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  cartIcon:{
+    marginRight:10,
+    marginLeft:20,
+    alignSelf:"center"
+  },
+  menuIcon:{
+    marginRight:20,
+    marginLeft:10,
+    alignSelf:"center"
+  }
 });
 
 const mapStateToProps = (state) => ({

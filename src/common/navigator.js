@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import AddItemScreen from "../screens/addItemScreen";
 import Welcome from "../screens/welcome";
 
@@ -20,12 +20,12 @@ export default function BottomNavigator() {
 
             if (route.name === "Welcome") {
               iconName = focused
-                ? "ios-information-circle"
-                : "ios-information-circle-outline";
-            } else if (route.name === "AddItemScreen") {
-              iconName = "search";
+                ? "info-with-circle"
+                : "info";
+            } else if (route.name === "Shop") {
+              iconName = "shop";
             }
-            return <Ionicons name={iconName} size={size} color={COLORS.blue} />;
+            return <Entypo name={iconName} size={size} color={COLORS.blue} />;
           },
         })}
         tabBarOptions={{
@@ -34,7 +34,7 @@ export default function BottomNavigator() {
         }}
       >
         <Tab.Screen name="Welcome" component={Welcome} />
-        <Tab.Screen name="AddItemScreen" component={AddItemScreen} />
+        <Tab.Screen name="Shop" component={AddItemScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

@@ -3,6 +3,6 @@ export const COLORS = {
     white: "#FFFFFF",
     light_grey: "#E8E8E9",
     grey: "#909090",
-    blue: "#00a2ed",
-    maroon:"#800000"
+    blue: "#3F51B5",
+    yellow:"#F8F102"
   };

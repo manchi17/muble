@@ -8,14 +8,16 @@ import {
 } from "react-native";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Entypo } from "@expo/vector-icons";
 import { COLORS } from "../styles/colors";
 import { common } from "../styles/common";
 import { getItem } from "../ducks/item";
-import { Entypo } from "@expo/vector-icons";
+import PurchaseSheet from "../components/purchaseSheet"
 
 class AddItemScreen extends Component {
   constructor(props) {
     super(props);
+  
   }
   componentDidMount() {
     this.props.getItems();
@@ -55,6 +57,7 @@ class AddItemScreen extends Component {
             </View>
           )}
         </View>
+        <PurchaseSheet/>
         <TouchableOpacity style={styles.buttonContainer}>
           <Text style={styles.buttonText}>ADD TO CART</Text>
         </TouchableOpacity>
@@ -73,6 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   mainContainer: {
+    marginTop:8,
     paddingLeft: 20,
   },
   buttonContainer: {
